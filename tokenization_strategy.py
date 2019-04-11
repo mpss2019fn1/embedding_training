@@ -21,7 +21,7 @@ class BasicTokenizationStrategy(TokenizationStrategyAbstract):
     def __init__(self):
         super(BasicTokenizationStrategy, self).__init__()
         # Match words ignoring special characters at the beginning or end
-        self._token_pattern = re.compile("^[^a-zA-Z0-9']?(?P<word>[a-zA-Z0-9']+?)[^a-zA-Z0-9']?$")
+        self._token_pattern = re.compile("^[^a-zA-Z0-9']?(?P<word>[a-zA-Z0-9',._\"-]+?)[^a-zA-Z0-9']?$")
 
     def tokenize(self, line):
         lower_tokens = line.lower().split(" ")
