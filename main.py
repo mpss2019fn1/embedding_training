@@ -22,14 +22,11 @@ def main():
 
     corpus = DocumentCorpus(args.input, BasicTokenizationStrategy())
 
-    for element in corpus:
-        print(element)
-
     # model = Word2Vec(corpus, size=100, window=5, min_count=5, workers=4, sg=0)
     model = _train_doc_embeddings(corpus)
 
-    model.wv.save_word2vec_format("wv.model")
-    model.save("word2vec.model")
+    model.wv.save_word2vec_format("doc2vec.text.model")
+    model.save("doc2vec.binary.model")
 
 
 def _train_word_embeddings(corpus):
