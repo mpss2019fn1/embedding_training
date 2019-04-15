@@ -1,0 +1,1 @@
+WIKIPEDIA_ARTICLE_FILE_ENDING = ".article"
