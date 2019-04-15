@@ -1,4 +1,5 @@
 import argparse
+import logging
 
 from gensim.models import Word2Vec
 
@@ -8,6 +9,7 @@ from tokenization_strategy import BasicTokenizationStrategy
 
 
 def main():
+    logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
     parser = _initialize_parser()
 
     args = parser.parse_args()
