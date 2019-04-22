@@ -34,7 +34,7 @@ def _train_word_embeddings(corpus):
 
 
 def _train_doc_embeddings(corpus):
-    model = Doc2Vec(corpus, vector_size=100, min_count=2, epochs=50, workers=4)
+    model = Doc2Vec(corpus, vector_size=100, min_count=2, epochs=50, workers=16)
     return model
 
 
