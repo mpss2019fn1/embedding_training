@@ -25,8 +25,8 @@ def main():
     # model = Word2Vec(corpus, size=100, window=5, min_count=5, workers=4, sg=0)
     model = _train_doc_embeddings(corpus)
 
-    model.save_word2vec_format("doc2vec.text.model", doctag_vec=True, word_vec=False, prefix="*entity_")
-    model.save("doc2vec.binary.model")
+    model.save_word2vec_format(args.output + "doc2vec.text.model", doctag_vec=True, word_vec=False, prefix="*entity_")
+    model.save(args.output + "doc2vec.binary.model")
 
 
 def _train_word_embeddings(corpus):
@@ -43,7 +43,7 @@ def _initialize_parser():
     # general_parser.add_argument("--input", help='Cleaned text corpus', action=AccessibleTextFile, required=True)
     general_parser.add_argument("--input", help='Directory containing cleaned Wikipedia articles',
                                 action=AccessibleDirectory, required=True)
-    general_parser.add_argument("--output", help='Model containing word embeddings', required=True)
+    general_parser.add_argument("--output", help='Desired location for model containing word embeddings', required=True)
 
     return general_parser
 
