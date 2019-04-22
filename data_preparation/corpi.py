@@ -38,4 +38,4 @@ class DocumentCorpus(CorpusAbstract):
                 continue
 
     def _process_single_article(self, article, article_name):
-        yield TaggedDocument(self._tokenizationStrategy.tokenize(article.read_text().replace("\n", "")), article_name)
+        yield TaggedDocument(self._tokenizationStrategy.tokenize(article.read_text().replace("\n", "")), [article_name])

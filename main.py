@@ -25,7 +25,7 @@ def main():
     # model = Word2Vec(corpus, size=100, window=5, min_count=5, workers=4, sg=0)
     model = _train_doc_embeddings(corpus)
 
-    model.wv.save_word2vec_format("doc2vec.text.model")
+    model.save_word2vec_format("doc2vec.text.model", doctag_vec=True, word_vec=False, prefix="*entity_")
     model.save("doc2vec.binary.model")
 
 
@@ -34,9 +34,7 @@ def _train_word_embeddings(corpus):
 
 
 def _train_doc_embeddings(corpus):
-    model = Doc2Vec(vector_size=100, min_count=2, epochs=40)
-    model.build_vocab(corpus)
-    model.train(corpus, total_examples=model.corpus_count, epochs=model.epochs)
+    model = Doc2Vec(corpus, vector_size=100, min_count=2, epochs=50, workers=4)
     return model
 
 
