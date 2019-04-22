@@ -43,7 +43,8 @@ def _initialize_parser():
     # general_parser.add_argument("--input", help='Cleaned text corpus', action=AccessibleTextFile, required=True)
     general_parser.add_argument("--input", help='Directory containing cleaned Wikipedia articles',
                                 action=AccessibleDirectory, required=True)
-    general_parser.add_argument("--output", help='Desired location for model containing word embeddings', required=True)
+    general_parser.add_argument("--output", help='Desired location for model containing word embeddings', required=True,
+                                action=AccessibleDirectory)
 
     return general_parser
 
