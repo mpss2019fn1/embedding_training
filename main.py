@@ -1,8 +1,10 @@
 import argparse
 import logging
+import resources
 
 from gensim.models import Word2Vec, Doc2Vec
 
+from pathlib import Path
 from util.filesystem_validators import AccessibleDirectory
 from data_preparation.corpi import DocumentCorpus
 from data_preparation.tokenization_strategy import BasicTokenizationStrategy
@@ -25,7 +27,8 @@ def main():
     # model = Word2Vec(corpus, size=100, window=5, min_count=5, workers=4, sg=0)
     model = _train_doc_embeddings(corpus)
 
-    model.save_word2vec_format(args.output + "doc2vec.text.model", doctag_vec=True, word_vec=False, prefix="*entity_")
+    model.save_word2vec_format(Path(args.output, resources.constant.W2V_OUTPUT_FILE), doctag_vec=True, word_vec=False,
+                               prefix="*entity_")
     model.save(args.output + "doc2vec.binary.model")
 
 
