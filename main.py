@@ -29,7 +29,7 @@ def main():
 
     model.save_word2vec_format(Path(args.output, resources.constant.W2V_OUTPUT_FILE), doctag_vec=True, word_vec=False,
                                prefix="*entity_")
-    model.save(args.output + "doc2vec.binary.model")
+    model.save(Path(args.output, resources.constant.BINARY_OUTPUT_FILE))
 
 
 def _train_word_embeddings(corpus):
